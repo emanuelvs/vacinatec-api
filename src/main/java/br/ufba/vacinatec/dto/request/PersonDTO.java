@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class PersonDTO {
 
-    private Long id;
+    private String id;
 
     @NotEmpty
     @Size(min = 2, max = 100)

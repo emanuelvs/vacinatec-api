@@ -11,7 +11,7 @@ public interface VaccineMapper {
 
     VaccineMapper INSTANCE = Mappers.getMapper(VaccineMapper.class);
 
-    Vaccine toModel(VaccineDTO vaccine);
+    Vaccine toModel(VaccineDTO vaccineDTO);
 
-    VaccineDTO toDTO(Vaccine vaccineDTO);
+    VaccineDTO toDTO(Vaccine vaccine);
 }

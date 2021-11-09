@@ -22,7 +22,7 @@ public class Person {
 
     @Id
     @Builder.Default
-    private UUID id = UUID.randomUUID();
+    private String id = UUID.randomUUID().toString();
 
     @Column(nullable = false)
     private String name;

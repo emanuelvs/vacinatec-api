@@ -23,6 +23,8 @@ public class VaccinationDTO {
 
     private String sideEffects;
 
+    private String personId;
+
     @NotEmpty
     @NotNull
     private String date;

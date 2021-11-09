@@ -1,6 +1,7 @@
 package br.ufba.vacinatec.service;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,13 @@ public class VaccinationService {
     public List<VaccinationDTO> listAll() {
         List<Vaccination> allVaccinations = vaccinationRepo.findAll();
         return allVaccinations.stream()
+                .map(VaccinationMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());
+    }
+
+    public List<VaccinationDTO> listByPerson(String personId) {
+        List<Vaccination> vaccinations = vaccinationRepo.findByPersonId(UUID.fromString(personId));
+        return vaccinations.stream()
                 .map(VaccinationMapper.INSTANCE::toDTO)
                 .collect(Collectors.toList());
     }

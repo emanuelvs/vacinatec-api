@@ -23,7 +23,7 @@ public class Vaccine {
     
     @Id
     @Builder.Default
-    private UUID id = UUID.randomUUID();
+    private String id = UUID.randomUUID().toString();
 
     @Column(nullable = false)
     private String name;
@@ -38,6 +38,6 @@ public class Vaccine {
         this.name = name;
         this.laboratory = laboratory;
         this.price = price;
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID().toString();
     }
 }

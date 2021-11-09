@@ -67,7 +67,7 @@ public class PersonService {
                 .orElseThrow(() -> new PersonNotFoundException(personId));
     }
 
-    private MessageResponseDTO createMessageResponse(Long id, String message) {
+    private MessageResponseDTO createMessageResponse(String id, String message) {
         return MessageResponseDTO
                 .builder()
                 .message(message + id)
