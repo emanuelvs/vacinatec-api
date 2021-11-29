@@ -1,0 +1,12 @@
+# ADR 001:Proposta de utilização do modelo MVC
+
+Durante a produção dos requisitos de negócio, foi definido que o produto consistiria em uma aplicação web, que deve contar, dentre outras coisas, com um banco de dados que pode ser acessado e modificado pelo usuário. O estilo MVC mostra-se ideal para esse tipo de aplicação pois sua modularidade permite uma melhor separação de competências entre os membros da equipe de desenvolvimento, aumentando o desempenho. Além disso, a separação entre a interface do usuário, o modelo e o controle, permite uma maior escalabilidade, e uma maior facilidade para que sejam feitas experiências com a interface do usuário visando maior qualidade na interação, sem que isso provoque interferências na parte lógica do código. Uma outra razão, de natureza prática, para a escolha desse modelo é a existência de uma ampla gama de frameworks já consolidadas que implementam o estilo MVC. A orientação a objetos é um estilo arquitetural subjacente, que possibilita a modularidade do sistema e o encapsulamento dos dados.
+
+## Decisão
+
+A proposta, inicialmente aceita foi suplantada pela proposta de modelo cliente-servidor devido a algumas vantagens deste modelo descritas na ADR 2.
+
+## Status: Suplantado
+
+## Consequências
+A proposta foi preterida em favor da proposta descrita na ADR 2. 
