@@ -1,0 +1,9 @@
+# ADR 006: Garantir recuperação
+Para garantir o atributo de recuperação é proposo as taticas de Exception handling e retry. 
+A primeira é para não deixar o usuário saber que houve um erro. A segunda é para mascarar um erro 
+que já tem tratamento.
+## Decisão
+A ADR foi aprovada por unanimidade após debate entre todos os membros da equipe. 
+## Status: Aceito 
+## Consequências
+Refatoração de funções para pegar erros(try catch). 
