@@ -1,0 +1,9 @@
+# ADR 007: Prevenção 
+Para garantir a disponibilidade utilizamos a tática de Prevenção
+Caso algum servidor esteja morto, o módulo de monitoramento é o 
+responsável para desativar o acesso ao nome do servidor morto nos servidores DNS. 
+## Decisão
+A ADR foi aprovada por unanimidade após debate entre todos os membros da equipe. 
+## Status: Aceito 
+## Consequências
+Reconfiguração do projeto. 
