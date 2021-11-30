@@ -1,6 +1,7 @@
 package br.ufba.vacinatec.service;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ public class VaccineService {
 
     public String createVaccine(VaccineDTO vaccineDTO) {
         Vaccine vaccineToSave = VaccineMapper.INSTANCE.toModel(vaccineDTO);
+        vaccineToSave.setId(UUID.randomUUID().toString());
         Vaccine savedVaccine =  vaccineRepo.save(vaccineToSave);
         return  VaccineMapper.INSTANCE.toDTO(savedVaccine).getId();
     }

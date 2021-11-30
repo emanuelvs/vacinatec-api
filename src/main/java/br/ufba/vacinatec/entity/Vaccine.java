@@ -7,10 +7,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Builder
@@ -22,7 +21,6 @@ import java.util.UUID;
 public class Vaccine {
     
     @Id
-    @Builder.Default
     private String id = UUID.randomUUID().toString();
 
     @Column(nullable = false)
@@ -33,11 +31,4 @@ public class Vaccine {
 
     @Column
     private Long price;
-
-    public Vaccine(String name, String laboratory, Long price) {
-        this.name = name;
-        this.laboratory = laboratory;
-        this.price = price;
-        this.id = UUID.randomUUID().toString();
-    }
 }

@@ -1,9 +1,6 @@
 package br.ufba.vacinatec.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,10 +22,8 @@ public class Vaccination {
     private String id = UUID.randomUUID().toString();
 
     @ManyToOne
+    @JoinColumn(name = "vaccineId")
     private Vaccine vaccine;
-
-    @ManyToOne
-    private Person person;
 
     @Column
     private String sideEffects;
@@ -39,11 +34,8 @@ public class Vaccination {
     @Column(nullable = false)
     private String location;
 
-    public Vaccination(Vaccine vaccine, Person person, LocalDate date, String location){
-        this.vaccine = vaccine;
-        this.person = person;
-        this.date = date;
-        this.location = location;
-        this.id = UUID.randomUUID().toString();
-    }
+    @ManyToOne
+    @JoinColumn(name = "personId")
+    private Person person;
+
 }

@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import br.ufba.vacinatec.repository.PersonRepository;
+import br.ufba.vacinatec.repository.VaccineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,10 +21,14 @@ import lombok.RequiredArgsConstructor;
 public class VaccinationService {
     
     private VaccinationRepository vaccinationRepo;
-
+    private PersonRepository personRepo;
+    private VaccineRepository vaccineRepo;
 
     public String createVaccination(VaccinationDTO vaccinationDTO) {
         Vaccination vaccinationToSave = VaccinationMapper.INSTANCE.toModel(vaccinationDTO);
+        vaccinationToSave.setId(UUID.randomUUID().toString());
+        vaccinationToSave.setPerson(personRepo.getOne(vaccinationDTO.getPersonId()));
+        vaccinationToSave.setVaccine(vaccineRepo.getOne(vaccinationDTO.getVaccineId()));
         Vaccination vaccinationSaved = vaccinationRepo.save(vaccinationToSave);
         return VaccinationMapper.INSTANCE.toDTO(vaccinationSaved).getId();
     }
@@ -35,7 +41,7 @@ public class VaccinationService {
     }
 
     public List<VaccinationDTO> listByPerson(String personId) {
-        List<Vaccination> vaccinations = vaccinationRepo.findByPersonId(UUID.fromString(personId));
+        List<Vaccination> vaccinations = vaccinationRepo.findByPersonId(personId);
         return vaccinations.stream()
                 .map(VaccinationMapper.INSTANCE::toDTO)
                 .collect(Collectors.toList());

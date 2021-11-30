@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.ufba.vacinatec.entity.Vaccine;
 
-public interface VaccineRepository extends JpaRepository<Vaccine, UUID>{
+public interface VaccineRepository extends JpaRepository<Vaccine, String>{
     
 }

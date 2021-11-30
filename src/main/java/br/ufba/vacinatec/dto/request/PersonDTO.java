@@ -21,6 +21,12 @@ public class PersonDTO {
     private String name;
 
     @NotEmpty
+    private String email;
+
+    @NotEmpty
+    private String password;
+
+    @NotEmpty
     private String birthDate;
 
 }

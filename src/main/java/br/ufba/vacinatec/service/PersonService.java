@@ -1,10 +1,16 @@
 package br.ufba.vacinatec.service;
 
+import br.ufba.vacinatec.enums.PersonUserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.ufba.vacinatec.dto.request.PersonDTO;
@@ -19,18 +25,25 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor(onConstructor = @__(@Autowired))
-public class PersonService {
+@AllArgsConstructor
+public class PersonService implements UserDetailsService {
 
-    private PersonRepository personRepository;
-
+    private final PersonRepository personRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final static String USER_NOT_FOUND_MSG = "user with email %s not found";
 
     public MessageResponseDTO createPerson(PersonDTO personDTO) {
         Person personToSave = PersonMapper.INSTANCE.toModel(personDTO);
 
+        personToSave.setId(UUID.randomUUID().toString());
+        personToSave.setPersonUserRole(PersonUserRole.USER);
+
+        String passwordEncoded = bCryptPasswordEncoder.encode(personDTO.getPassword());
+        personToSave.setPassword(passwordEncoded);
+
         Person savedPerson = personRepository.save(personToSave);
         PersonDTO person = PersonMapper.INSTANCE.toDTO(savedPerson);
-        return createMessageResponse(person.getId(), "Created person with ID ");
+        return createMessageResponse(person.getId(), "");
     }
 
     public List<PersonDTO> listAll() {
@@ -48,7 +61,7 @@ public class PersonService {
 
     public void delete(String id) throws PersonNotFoundException {
         verifyIfExists(id);
-        personRepository.deleteById(UUID.fromString(id));
+        personRepository.deleteById(id);
     }
 
     public MessageResponseDTO updateById(String id, PersonDTO personDTO) throws PersonNotFoundException {
@@ -62,9 +75,8 @@ public class PersonService {
     }
 
     private Person verifyIfExists(String id) throws PersonNotFoundException {
-        UUID personId = UUID.fromString(id);
-        return personRepository.findById(personId)
-                .orElseThrow(() -> new PersonNotFoundException(personId));
+        return personRepository.findById(id)
+                .orElseThrow(() -> new PersonNotFoundException(id));
     }
 
     private MessageResponseDTO createMessageResponse(String id, String message) {
@@ -72,5 +84,11 @@ public class PersonService {
                 .builder()
                 .message(message + id)
                 .build();
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return personRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
     }
 }

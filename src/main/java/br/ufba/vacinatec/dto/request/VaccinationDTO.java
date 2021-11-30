@@ -17,7 +17,6 @@ public class VaccinationDTO {
     private String id;
 
     @NotEmpty
-    @NotNull
     @Size(min = 2, max = 100)
     private String vaccineId;
 
@@ -26,7 +25,6 @@ public class VaccinationDTO {
     private String personId;
 
     @NotEmpty
-    @NotNull
     private String date;
 
     
