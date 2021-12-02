@@ -1,5 +1,16 @@
 <h2>VACINATEC API REST</h2>
 
+## Adrs:
+
+* [DR-002-Proposta-Cliente-Servidor](adrs/aceitas/ADR-002-Proposta-Cliente-Servidor.md)
+* [ADR-003-Decisão-Atributos-Foco](adrs/aceitas/ADR-003-Decisão-Atributos-Foco.md)
+* [ADR-004-Princípios-Design](adrs/aceitas/ADR-004-Princípios-Design.md)
+* [ADR-005-Adoção-Controle-Versionamento](adrs/aceitas/ADR-005-Adoção-Controle-Versionamento.md)
+* [ADR-006-tatica-disponibilidade](adrs/aceitas/ADR-006-tatica-disponibilidade.md)
+* [ADR007-taticas-usablilidade](adrs/aceitas/ADR007-taticas-usablilidade.md)
+* [DR-002-Proposta-Cliente-Servidor](adrs/aceitas/ADR-002-Proposta-Cliente-Servidor.md)
+* [ADR008-Modificabilidade](adrs/aceitas/ADR-002-Proposta-Cliente-Servidor.md)
+
 * Setup inicial de projeto com o Spring Boot Initialzr 
 * Criação de modelo de dados para o mapeamento de entidades em bancos de dados
 * Desenvolvimento de operações de gerenciamento de usuários (Cadastro, leitura, atualização e remoção de pessoas de um sistema).
