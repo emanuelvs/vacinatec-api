@@ -53,11 +53,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //Permitir requisicoes de varios dominios
         http.csrf().disable()
                 // Nao checar estas requisicoes
-                .authorizeRequests().antMatchers("/api/v1/auth", "/api/v1/person").permitAll()
+                .authorizeRequests().antMatchers("/api/v1/auth", "/api/v1/person", "/h2-console").permitAll()
                 // Authentique qualquer outra
                 .anyRequest().authenticated().and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class);
+        http.cors().and();
     }
+
+
 }

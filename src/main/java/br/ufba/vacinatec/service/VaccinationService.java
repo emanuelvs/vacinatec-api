@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import br.ufba.vacinatec.config.JwtTokenUtil;
+import br.ufba.vacinatec.dto.response.VaccinationResponseDTO;
+import br.ufba.vacinatec.entity.Person;
 import br.ufba.vacinatec.repository.PersonRepository;
 import br.ufba.vacinatec.repository.VaccineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +25,9 @@ public class VaccinationService {
     
     private VaccinationRepository vaccinationRepo;
     private PersonRepository personRepo;
+    private PersonService personService;
     private VaccineRepository vaccineRepo;
+    private JwtTokenUtil jwtTokenUtil;
 
     public String createVaccination(VaccinationDTO vaccinationDTO) {
         Vaccination vaccinationToSave = VaccinationMapper.INSTANCE.toModel(vaccinationDTO);
@@ -33,16 +38,27 @@ public class VaccinationService {
         return VaccinationMapper.INSTANCE.toDTO(vaccinationSaved).getId();
     }
 
-    public List<VaccinationDTO> listAll() {
+    public List<Vaccination> listAll() {
         List<Vaccination> allVaccinations = vaccinationRepo.findAll();
-        return allVaccinations.stream()
+        return allVaccinations;
+        /* return allVaccinations.stream()
                 .map(VaccinationMapper.INSTANCE::toDTO)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()); */
     }
 
-    public List<VaccinationDTO> listByPerson(String personId) {
+    public List<Vaccination> listByPerson(String personId) {
         List<Vaccination> vaccinations = vaccinationRepo.findByPersonId(personId);
+        return vaccinations;
+        /*
         return vaccinations.stream()
+                .map(VaccinationMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());*/
+    }
+
+    public List<VaccinationResponseDTO> listByLoggedUser(String token) throws Exception {
+        Person user = personService.loadUserByToken(token);
+        return vaccinationRepo.findByPersonId(user.getId())
+                .stream()
                 .map(VaccinationMapper.INSTANCE::toDTO)
                 .collect(Collectors.toList());
     }

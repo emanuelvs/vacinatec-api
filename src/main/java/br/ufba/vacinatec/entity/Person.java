@@ -39,9 +39,6 @@ public class Person implements UserDetails {
     @Column
     private LocalDate birthDate;
 
-    @OneToMany
-    private List<Vaccination> vaccinationList;
-
     @Column
     @Enumerated(EnumType.STRING)
     private PersonUserRole personUserRole;
