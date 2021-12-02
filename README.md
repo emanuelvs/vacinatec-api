@@ -1,7 +1,5 @@
 <h2>VACINATEC API REST</h2>
 
-![Arquitetura](adrs/aceitas/app-architecture.png)
-
 ## Adrs Aceitas
 
 * [DR-002 - Proposta-Cliente-Servidor](adrs/aceitas/ADR-002-Proposta-Cliente-Servidor.md)
@@ -15,6 +13,7 @@
 * [ADR009 - Desenvolvimento da API](adrs/aceitas/ADR9:Desenvolvimento-da-API.md)
 * [ADR010 - Desenvolvimento do cliente](adrs/aceitas/ADR10Desenvolvimento-do-cliente.md)
 
+![Arquitetura](adrs/aceitas/app-architecture.png)
 
 ### Objetivos
 
