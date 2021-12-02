@@ -26,12 +26,13 @@ Para executar o projeto no terminal, digite o seguinte comando:
 mvn spring-boot:run 
 ```
 
-Após executar o comando acima, basta apenas abrir o seguinte endereço e visualizar a execução do projeto:
+Após executar o comando acima, basta apenas abrir o seguintes endereços e visualizar a execução do projeto:
 
 ```
 http://localhost:8080/api/v1/person
 http://localhost:8080/api/v1/vaccine
 http://localhost:8080/api/v1/vaccination
+http://localhost:8080/api/v1/auth
 ```
 
 
