@@ -13,6 +13,7 @@
 * [ADR009 - Desenvolvimento da API](adrs/aceitas/ADR9:Desenvolvimento-da-API.md)
 * [ADR010 - Desenvolvimento do cliente](adrs/aceitas/ADR10Desenvolvimento-do-cliente.md)
 
+### Arquitetura
 ![Arquitetura](adrs/aceitas/app-architecture.png)
 
 ### Objetivos
