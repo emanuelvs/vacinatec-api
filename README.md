@@ -1,5 +1,7 @@
 <h2>VACINATEC API REST</h2>
 
+![Arquitetura](adrs/aceitas/app-architecture.png)
+
 ## Adrs Aceitas
 
 * [DR-002 - Proposta-Cliente-Servidor](adrs/aceitas/ADR-002-Proposta-Cliente-Servidor.md)
