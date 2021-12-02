@@ -1,15 +1,20 @@
 <h2>VACINATEC API REST</h2>
 
-## Adrs:
+## Adrs Aceitas
 
-* [DR-002-Proposta-Cliente-Servidor](adrs/aceitas/ADR-002-Proposta-Cliente-Servidor.md)
-* [ADR-003-Decisão-Atributos-Foco](adrs/aceitas/ADR-003-Decisão-Atributos-Foco.md)
-* [ADR-004-Princípios-Design](adrs/aceitas/ADR-004-Princípios-Design.md)
-* [ADR-005-Adoção-Controle-Versionamento](adrs/aceitas/ADR-005-Adoção-Controle-Versionamento.md)
-* [ADR-006-tatica-disponibilidade](adrs/aceitas/ADR-006-tatica-disponibilidade.md)
-* [ADR007-taticas-usablilidade](adrs/aceitas/ADR007-taticas-usablilidade.md)
-* [DR-002-Proposta-Cliente-Servidor](adrs/aceitas/ADR-002-Proposta-Cliente-Servidor.md)
-* [ADR008-Modificabilidade](adrs/aceitas/ADR-002-Proposta-Cliente-Servidor.md)
+* [DR-002 - Proposta-Cliente-Servidor](adrs/aceitas/ADR-002-Proposta-Cliente-Servidor.md)
+* [ADR-003 - Decisão-Atributos-Foco](adrs/aceitas/ADR-003-Decisão-Atributos-Foco.md)
+* [ADR-004 - Princípios-Design](adrs/aceitas/ADR-004-Princípios-Design.md)
+* [ADR-005 - Adoção-Controle-Versionamento](adrs/aceitas/ADR-005-Adoção-Controle-Versionamento.md)
+* [ADR-006 - tatica-disponibilidade](adrs/aceitas/ADR-006-tatica-disponibilidade.md)
+* [ADR007 - taticas-usablilidade](adrs/aceitas/ADR007-taticas-usablilidade.md)
+* [DR-002 - Proposta-Cliente-Servidor](adrs/aceitas/ADR-002-Proposta-Cliente-Servidor.md)
+* [ADR008 - Modificabilidade](adrs/aceitas/ADR-002-Proposta-Cliente-Servidor.md)
+* [ADR009 - Desenvolvimento da API](adrs/aceitas/ADR9:Desenvolvimento-da-API.md)
+* [ADR010 - Desenvolvimento do cliente](adrs/aceitas/ADR10Desenvolvimento-do-cliente.md)
+
+
+### Objetivos
 
 * Setup inicial de projeto com o Spring Boot Initialzr 
 * Criação de modelo de dados para o mapeamento de entidades em bancos de dados
